@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 13:19:04 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/21 14:09:57 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/21 15:52:50 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,51 +34,49 @@ int	count_digits(long	n)
 char	*ft_itoa(int	n)
 {
 	int	signe;
+	long	nb;
 	char	*p;
 	int	i;
 	int	len;
 	int	original_len;
 
-	len = count_digits(n);
+	nb = n;
+	len = count_digits(nb);
 	original_len = len;
 	signe = 0;
 	i = 0;
-	if (n < 0)
+	if (nb < 0)
 		signe = 1;
 	p = malloc((len + signe + 1) * sizeof(char));
 	if (!p)
 		return (NULL);
-	if (n == 0)
+	if (nb == 0)
 	{
 		p[0] = '0';
 		p[1] = '\0';
 		return (p);
 	}
-	if (n < 0)
+	if (nb < 0)
 	{
 		p[0] = '-';
-		i++;
-		while (n < 0)
+		nb = -nb;
+		while (nb > 0)
 		{
-			p[i] = n % 10 + '0';
-			n = n / 10;
-			i++;
+			p[len + signe - 1] = (nb % 10) + '0';
+			nb = nb / 10;
+			len--;
 		}
-		p[i] = '\0';
+		p[original_len + signe] = '\0';
 	}
 	else
 	{
-		while (n > 0)
+		while (nb > 0)
 		{
-			p[len - 1] = (n % 10) + '0';
-			n = n / 10;
+			p[len - 1] = (nb % 10) + '0';
+			nb = nb / 10;
 			len--;
 		}
 	p[original_len] = '\0';
 	}
 	return (p);
-}
-int  main()
-{
-	printf("%s",ft_itoa(123));
 }
