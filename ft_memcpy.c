@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/12 20:20:35 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/14 17:40:33 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/15 19:58:53 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*p;
-	unsigned char	*t;
+	const unsigned char	*t;
 
 	i = 0;
 	p = (unsigned char *) dst;

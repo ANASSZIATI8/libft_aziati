@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/13 12:05:52 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/14 17:40:13 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/19 17:25:56 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ size_t	ft_strlcat(char *dst,
 	if (dstsize == 0)
 		return (srcsize);
 	i = 0;
-	while (dst[i] && i < dstsize)
+	while (i < dstsize && dst[i])
 	{
 		dstlen++;
 		i++;
