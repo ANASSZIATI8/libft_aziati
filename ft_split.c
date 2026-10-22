@@ -12,113 +12,82 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <stdio.h>
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
-static	int	ft_start(char *str,	char c, int i)
+int	ft_count_words(char const *s, char c)
 {
-	while (str[i] && str[i] == c)
-		i++;
-	return (i);
-}
-static	int	ft_end(char *str, char c, int i)
-{
-	while (str[i] && str[i] == c)
-		i++;
-	while (str[i] && str[i] != c)
-		i++;
-	return (i);
-}
-static	int	ft_wordlen(char *str, char c, int i)
-{
-	int	start;
-	int	end;
-	start = ft_start(str, c, i);
-	end = ft_end(str, c, i);
-	return (end - start);
-}
-static int	count_words(char *str, char c)
-{
-	int	count;
 	int	i;
-
-	count = 0;
+	int	count;
 	i = 0;
-
-	while (str[i])
+	count = 0;
+	while (s[i])
 	{
-		while (str[i] == c)
+		while (s[i] && s[i] == c)
 			i++;
-		if (str[i])
-		{
-			while (str[i] && str[i] != c)
-				i++;
+		if (s[i])
 			count++;
-		}
+		while (s[i] && s[i] != c)
+			i++;
 	}
 	return (count);
 }
-static char *ft_extract_word(const char *s, int start, int len)
+
+int	ft_end(char const *s, char c, int	i)
 {
-	char *word;
-	
-	int	i;
-	i = 0;
-	word = malloc((len + 1) * sizeof(char));
-	if (!word)
-		return (NULL);
-	while (s[start] && i < len)
-	{
-		word[i++] = s[start++];
-	}
-	word[i] = '\0';
-	return (word);
+	while (s[i] && s[i] != c)
+		i++;
+	return (i);
 }
-static	void	ft_free(char **p, int	j)
+char	*ft_malloc(int start, int end)
 {
-	while (j > 0)
-	{
-		j--;
-		free(p[j]);
-	}
+	char *p;
+
+	p = malloc((end - start + 1) * sizeof(char));
+	if (!p)
+		return (NULL);
+	return (p);
+}
+void	ft_free_fun(char **p, size_t pos)
+{
+	size_t	i;
+	i = 0;
+	while (i < pos)
+		free(p[--i]);
 	free(p);
 }
 char	**ft_split(char const *s, char c)
 {
-	int	i;
 	char **p;
-	int start;
-	int	len;
-	int	j;
+
+	int	end;
+	int	i;
+	int pos;
 	if (!s)
 		return (NULL);
-	p = malloc((count_words(s,c) + 1) * (sizeof(char*)));
+	p = malloc (((ft_count_words(s, c) + 1) * sizeof(char *) + 1));
 	if (!p)
 		return (NULL);
 	i = 0;
-	j = 0;
-	while (s[i])
+	pos = 0;
+	while (i < ft_count_words(s, c))
 	{
-		while (s[i] == c && s[i])
-			i++;
-		if (!s[i])
-			break;
-		start = i;
-		while (s[i] && s[i] != c)
-			i++;
-		len = i - start;
-		p[j] = ft_extract_word(s, start, len);
-		if (!p[j])
+		while (s[pos] && s[pos] == c)
+			pos++;
+		end = ft_end(s, c, pos) - pos;
+		printf("%d\n",end);
+		p[i] = ft_substr(s,pos , end);
+		if (!p[i])
 		{
-			ft_free(p, j);
-			return(NULL);
+			ft_free_fun(p, i);
+			return (NULL);
 		}
-		j++;
+			
+		pos += end;
+		i++;
 	}
-	p[j] = NULL;
+	p[ft_count_words(s, c)] = NULL;
+
 	return (p);
-}
-int main()
-{
-	char tab[] = "    hello world hello";
-	int results = count_words(tab, ' ');
-	printf("%d",results);
 }
