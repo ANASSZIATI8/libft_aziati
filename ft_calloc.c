@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 17:10:28 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/17 19:13:20 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/24 11:44:31 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,28 +27,28 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-// void	*ft_calloc(size_t count, size_t size)
-// {
-// 	void	*p;
-// 	size_t		i;
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*p;
+	size_t		i;
 
-// 	if (count == 0 || size == 0)
-// 	{
-// 		p = malloc (1);
-// 		if (p == NULL)
-// 			return (NULL);
-// 		ft_bzero(p,1);
-// 		return (p);
-// 	}
-// 	if (count > (SIZE_MAX / size))
-// 		return (NULL);
-// 	i = 0;
-// 	p = malloc (count * size);
-// 	if (p == NULL)
-// 		return (NULL);
-// 	ft_bzero(p, count * size);
-// 	return (p);
-// }
+	if (count == 0 || size == 0)
+	{
+		p = malloc (1);
+		if (p == NULL)
+			return (NULL);
+		ft_bzero(p,1);
+		return (p);
+	}
+	if (count  > (SIZE_MAX / size))
+		return (NULL);
+	i = 0;
+	p = malloc (count * size);
+	if (p == NULL)
+		return (NULL);
+	ft_bzero(p, count * size);
+	return (p);
+}
 
 // #include <stdio.h>
 // #include <stdlib.h>
