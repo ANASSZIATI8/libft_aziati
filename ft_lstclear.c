@@ -6,9 +6,11 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 11:42:22 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/25 11:53:49 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 01:53:16 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
@@ -18,7 +20,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	if (!lst || !del)
 		return ;
 	curent = *lst;
-	while (curent->next)
+	while (curent)
 	{
 		tmp = curent->next;
 		ft_lstdelone(curent,del);

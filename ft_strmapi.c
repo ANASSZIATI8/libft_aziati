@@ -6,11 +6,13 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 15:53:55 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/23 21:04:56 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 00:15:52 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+int 
+
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*results;
@@ -30,3 +32,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	results[i] = '\0';
 	return (results);
 }
+
+
+int	add(int a, int b)
+	return (a + b);
+
+int mult(int a, int b)
+	return (a * b);
+
+int (*option[0])(int , int) = {add, mult};
+
+//		int tab[0] =                                   = {1, 2}
