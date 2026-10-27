@@ -6,11 +6,13 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 19:15:00 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/23 21:04:46 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:54:55 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_striteri(char *s, char (*f)(unsigned int, char))
+#include "libft.h"
+
+void ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int	i;
 	
@@ -19,8 +21,7 @@ char	*ft_striteri(char *s, char (*f)(unsigned int, char))
 	i = 0;
 	while (s[i])
 	{
-		s[i] = f(s[i] ,i);
+		f(i, &s[i]);;
 		i++;
 	}
-	return (p);
 }

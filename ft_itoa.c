@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 13:19:04 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/21 15:52:50 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:52:29 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char	*ft_itoa(int	n)
 	int	signe;
 	long	nb;
 	char	*p;
-	int	i;
 	int	len;
 	int	original_len;
 
@@ -44,7 +43,6 @@ char	*ft_itoa(int	n)
 	len = count_digits(nb);
 	original_len = len;
 	signe = 0;
-	i = 0;
 	if (nb < 0)
 		signe = 1;
 	p = malloc((len + signe + 1) * sizeof(char));

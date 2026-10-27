@@ -6,31 +6,15 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 17:10:28 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/24 11:44:31 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:53:15 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n);
-void	ft_bzero(void *s, size_t n)
-{
-	size_t			i;
-	unsigned char	*p;
-
-	i = 0;
-	p = (unsigned char *)s;
-	while (i < n)
-	{
-		p[i] = 0;
-		i++;
-	}
-}
 void	*ft_calloc(size_t count, size_t size)
 {
 	void	*p;
-	size_t		i;
 
 	if (count == 0 || size == 0)
 	{
@@ -42,7 +26,6 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	if (count  > (SIZE_MAX / size))
 		return (NULL);
-	i = 0;
 	p = malloc (count * size);
 	if (p == NULL)
 		return (NULL);

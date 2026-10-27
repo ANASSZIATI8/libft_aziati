@@ -6,16 +6,13 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 22:30:14 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/21 22:42:45 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:56:11 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar_fd(char c, int fd)
-{
-	write(fd, &c, 1);
-}
+
 void	ft_putnbr_fd(int n, int fd)
 {
 	long	nb;

@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/15 13:43:32 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/16 18:32:26 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:44:05 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,12 @@ char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 //     printf("-----------------------------\n");
 // }
 
-int main(void)
-{
-   char str[] = "NULL";
-   //char need[] = "lkk";
-   printf("%s\n",strnstr(str,NULL,6));
+// int main(void)
+// {
+//    char str[] = "NULL";
+//    //char need[] = "lkk";
+//    printf("%s\n",strnstr(str,NULL,6));
    
 
-    return (0);
-}
+//     return (0);
+// }

@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 13:44:14 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/26 23:06:04 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:41:49 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    mew->next = *lst;
+    new->next = *lst;
     *lst = new;
 }

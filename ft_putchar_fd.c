@@ -6,13 +6,13 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 21:42:56 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/21 21:57:42 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:45:26 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void static	ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	write(fd, &c, fd);
 }

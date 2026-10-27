@@ -6,7 +6,7 @@
 /*   By: aziati <aziati@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/14 20:43:21 by aziati            #+#    #+#             */
-/*   Updated: 2026/10/15 00:13:14 by aziati           ###   ########.fr       */
+/*   Updated: 2026/10/27 02:52:56 by aziati           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (p[i] == (unsigned char)c)
-			return ((void *)&s[i]);
+			return ((void *)&p[i]);
 		i++;
 	}
 	return (NULL);
