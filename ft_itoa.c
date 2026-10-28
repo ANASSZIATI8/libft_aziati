@@ -11,40 +11,50 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static size_t	count_digits(unsigned int n)
+static int	count_digits(long n)
 {
-	size_t	len;
+	int	i;
 
-	len = 1;
-	while (n >= 10)
+	i = 0;
+	if (n == 0)
+		return (1);
+	if (n < 0)
+		n = -n;
+	while (n > 0)
 	{
-		n /= 10;
-		len++;
+		n = n / 10;
+		i++;
 	}
-	return (len);
+	return (i);
 }
 
 char	*ft_itoa(int n)
 {
-	unsigned int	nb;
-	size_t			len;
-	char			*p;
+	int		len;
+	long	nb;
+	char	*p;
 
 	nb = n;
-	if (n < 0)
-		nb = 0U - nb;
-	len = count_digits(nb) + (n < 0);
-	p = malloc(len + 1);
+	len = count_digits(nb);
+	if (nb < 0)
+		len++;
+	p = malloc(sizeof(char) * (len + 1));
 	if (!p)
 		return (NULL);
 	p[len] = '\0';
-	if (n < 0)
-		p[0] = '-';
-	while (len > (size_t)(n < 0))
+	if (nb < 0)
 	{
-		p[--len] = nb % 10 + '0';
-		nb /= 10;
+		p[0] = '-';
+		nb = -nb;
+	}
+	if (nb == 0)
+		p[0] = '0';
+	while (nb > 0)
+	{
+		p[--len] = (nb % 10) + '0';
+		nb = nb / 10;
 	}
 	return (p);
 }
