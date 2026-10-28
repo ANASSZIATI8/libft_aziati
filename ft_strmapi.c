@@ -31,13 +31,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	results[i] = '\0';
 	return (results);
 }
-
-// int	add(int a, int b)
-// 	return (a + b);
-
-// int mult(int a, int b)
-// 	return (a * b);
-
-// int (*option[0])(int , int) = {add, mult};
-
-// //		int tab[0] =                                   = {1, 2}

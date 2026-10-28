@@ -12,8 +12,6 @@
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s1);
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*p;
